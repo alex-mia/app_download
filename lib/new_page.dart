@@ -52,14 +52,20 @@ class NewPageState extends State<NewPage> {
     if (state.runtimeType == LoadedState) {
       final data = (state as LoadedState).age;
       Map valueMap = jsonDecode(data);
-      final int value = valueMap['age'];
-      final String valueStr = value.toString();
-      return Text(valueStr.toString(),
-        style: TextStyle(
-          color: Colors.lightBlue,
-          fontSize: 25,
-        ),
-      );
+      print(valueMap['age'].runtimeType );
+      if (valueMap['age'].runtimeType == Null){setState(() {
+        return ;
+      });
+      } else {
+        final int value = valueMap['age'];
+        final String valueStr = value.toString();
+        return Text(valueStr.toString(),
+          style: TextStyle(
+            color: Colors.lightBlue,
+            fontSize: 25,
+          ),
+        );
+      };
     }
     return Placeholder();
   }
