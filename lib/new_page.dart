@@ -27,8 +27,13 @@ class NewPageState extends State<NewPage> {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-        child: Center(
-          child: buildBody(),
+        color: Colors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            buildBody(),
+          ],
         ),
       ),
     );
@@ -60,45 +65,23 @@ class NewPageState extends State<NewPage> {
   }
 
   Widget getDefaultState() {
-    return Material(
-      child: Container(
-        color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextField(
+    return TextField(
               controller: _controller,
               decoration: const InputDecoration(
                 contentPadding: EdgeInsets.symmetric(horizontal: 10),
                 hintText: 'Введите имя',
               ),
-            ),
-          ],
-        ),
-      ),
-    );
+            );
   }
 
   Widget getErrorState() {
-    return Material(
-      child: Container(
-        color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextField(
+    return TextField(
               controller: _controller,
               decoration: const InputDecoration(
                   contentPadding: EdgeInsets.symmetric(horizontal: 10),
                   hintText: 'Введите имя',
                   errorText: 'Поле не может быть пустым!',
               ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 
